@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/fontawesome/css/all.css">
+    <title>CleanApp Dashboard</title>
+    <style type="/static/text/css">
+        
+
+        footer{color: #03a9f4;}
+
+    </style>
+</head>
+    <body>
+        <div class="row">
+            <div class="col">
+              <ul class="navbar" id="navbar" style="list-style:none;">
+                <img src="/static/logoicon.png" alt="logo image" onclick="location.href='/admin/'" id="content">
+                <h5 id="content"><em style="color:rgb(0, 153, 255); margin-right: 5px;">Cleanapp</em></h5>
+                <button onclick="location.href='/admin/profilepage/'" class="btn btn-outline-info"> Admin Profile Page</button>
+                <button onclick="location.href='/userstory/'" class="btn btn-info">Our User Story</button>
+                <button id="content" type="btn" onclick="location.href='/adminbreakout/'" class="btn btn-warning">Our Breakouts</button>
+                <button id="content" type="btn" onclick="location.href='/admin/logout/'" class="btn btn-danger">Logout</button>
+            
+              </ul>
+               </div>
+             </div>
+      
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <h1 class="mt-4"><em style="color: green;">Dash</em><em style="color:#03a9f4">board</em></h1>
+                        <div class="row">
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-success text-white mb-4">
+                                    <div class="card-body"> REQUESTS</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" href="/viewrequests/">View Requests</a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-info text-white mb-4">
+                                    <div class="card-body">View Item </div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" href="/viewitem/">View Item</a>
+                                        <div class="small text-darks"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-warning  text-white mb-4">
+                                    <div class="card-body text-white">SERVICES</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" href="/viewservices/">View Services</a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-outline-info  text-dark mb-4">
+                                    <div class="card-body"> PRICELIST</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-dark stretched-link" href="/viewpricelist/">View Price List</a>
+                                        <div class="small text-dark"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-dark  text-white mb-4">
+                                    <div class="card-body">MAKE PAYMENTS</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" href="#">Make Payment</a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-outline-info  text-dark mb-4">
+                                    <div class="card-body">CLIENTS</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-dark stretched-link" href="/viewclients/">View Clients</a>
+                                        <div class="small text-dark"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-info subtle text-dark mb-4">
+                                    <div class="card-body">DISPATCHER</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-dark stretched-link" href="/viewdispatchers/">View Dispatchers</a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-primary text-white mb-4">
+                                    <div class="card-body">Drycleaners</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" href="/viewdrycleaners/">View Drycleaners</a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
+                         
+
+
+                            
+                            
+                        </div>
+                         
+                        
+                    </div>
+                </main>
+
+ <br><br><br><br>               
+                <div class="footer">
+                    <div class="col-12">
+                      <footer class="py-4 bg-info mt-auto">
+                        <div class="container-fluid px-4">
+                            <div class="d-flex align-items-center justify-content-between small">
+                                <div class="text-dark">Copyright &copy; Cleanapp 2024</div>
+                                <div>
+                                    <a href="#"  class="text-dark">Privacy Policy</a>
+                                    &middot;
+                                    <a href="#"  class="text-dark">Terms &amp; Conditions</a>
+                                </div>
+                            </div>
+                        </div>
+                    </footer>
+                  </div>
+                </div>
+              </footer>
+            </div>
+        </div>
+        
+        
+        <script src="/static/jquery.js"></script>
+ 
+
+        <script>
+        
+        
+        </script>
+        </body>
+        </html>

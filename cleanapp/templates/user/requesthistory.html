@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+  <link href="/static/animate.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/static/fontawesome/css/all.css">
+  <title>Client Request History</title>
+  <style type="text/css">
+       *{background-color:white; padding-right:0px; margin:0px; padding-top:0px; text-justify: auto; }
+       body {font-family: "Raleway", sans-serif;font-variant: small-caps; padding: 0; height: 100vh;background:whitesmoke}
+      .navbar{position:absolute; top:0; width: 100%; overflow: hidden; }
+       i{color:#03a9f4;}
+       li{ position: relative;margin: auto;display: block;}
+       footer{background-color: #03a9f4;}
+
+       @media (max-width: 600px) {.footer{width: 100%;margin-bottom: 20px;}}
+       table { width: 100%; border-collapse: collapse; margin-top: 20px;}
+        th, td {border: 1px solid #dddddd;text-align: left; padding: 8px;}
+        th {background-color: #f2f2f2; }
+    </style>
+</head>
+    <body style="height: 100%; width: 100%; box-sizing: border-box; margin: 0; padding:0;">
+    <div class="container-fluid">
+
+    {% include "user/nav.html" %}
+
+     <div class="row" style="padding-top: 150px;">
+        <div class="col">
+
+    <h3>Welcome, {{ user.user_fname }}</h3>
+    
+    <div>
+        <h>Request History</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Request ID</th>
+                    <th>Created Date</th>
+                    <th>Picked Up Status</th>
+                    <th>Delivered Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for request in requests %}
+                <tr>
+                    <td>{{ request.request_id }}</td>
+                    <td>{{ request.request_createddate }}</td>
+                    <td>{{ request.pickedup_status }}</td>
+                    <td>{{ request.delivered_status }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+    <a href="/profilepage/">Back to Dashboard</a> 
+
+<br><br><br><br><br><br><br><br><br>
+  {% include "user/footer.html" %}
+
+</div>
+
+</body>
+</html>
+

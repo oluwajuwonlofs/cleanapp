@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+  <link href="/static/animate.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/static/fontawesome/css/all.css">
+  <title>Cleanapp Dispatcher Profile</title>
+  <style type="text/css">
+       *{background-color:white; padding-right:0px; margin:0px; padding-top:0px; text-justify: auto; }
+       body {font-family: "Raleway", sans-serif;font-variant: small-caps; padding: 0; height: 100vh;background:whitesmoke}
+      .navbar{position:absolute; top:0; width: 100%; overflow: hidden; }
+       i{color:#03a9f4;}
+       li{ position: relative;margin: auto;display: block;}
+       footer{background-color: #03a9f4;}
+
+       @media (max-width: 600px) {.footer{width: 100%;margin-bottom: 20px;}}
+       
+       img {max-width: 100%;}
+
+       .dropdown { position: relative;display: inline-block;}
+       .dropdown-content {display: none;position: absolute;background-color: #f9f9f9;min-width: 160px;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);z-index: 1;}
+       .dropdown-content a {color:#03a9f4;padding: 12px 16px;text-decoration: none;display: block;}
+       .dropdown-content a:hover {background-color:transparent}
+       .dropdown:hover .dropdown-content {display: block;}
+
+
+    </style>
+</head>
+<body style="height: 100%; width: 100%; box-sizing: border-box; margin: 0; padding: 0;">
+  
+ <div class="container-fluid">
+   
+  {% include "user/nav.html" %}
+
+   <div class="row" style="padding-top: 150px;">
+       <div class="content" style="background-color: white;padding:3em">
+         {% set m = get_flashed_messages(with_categories=True) %}
+          {% for cat, msg in m %}
+             {% if cat=='error' %}
+             <div class="alert alert-danger">{{msg}}</div>
+             {% else %}
+            <div class="alert alert-success "> {{msg}}</div>
+            {%endif%}
+         {% endfor %}
+         <a href="/dispatcherprofilepage/">Back to Dashboard</a>
+         <h3>Edit Your Profile</h3>
+        
+         <br>
+        <form enctype="multipart/form-data" method="post" action="/dispatcherprofile/">
+           <input type="hidden" name="csrf_token" value="{{ csrf_token()}}">
+           <div class="form-group row">
+            <div class="col-md-6 mb-3">
+               <label for="dispatcher_businessname">Business Name</label>
+               <input class="form-control border-info noround" id="businessname" name="dispatcher_businessname" required type="text" value="{{dispatchers.dispatcher_businessname}}"  >
+            </div>
+ 
+            <div class="col-md-6 mb-3">
+              <label for="dispatcher_phone">Phone</label>
+             <input class="form-control border-info noround" id="phone" name="dispatcher_phone" required type="text" value="{{dispatchers.dispatcher_phone}}" >
+           </div>
+
+         <div class="col-md-6 mb-3">
+          <label for="dispatcher_address">Address</label>
+          <input class="form-control border-info noround" id="address" name="dispatcher_address" required type="text" value="{{dispatchers.dispatcher_officeaddress}}" >
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label for="dispatcher_platenumber">Plate Number</label>
+          <input class="form-control border-info noround" id="address" name="dispatcher_platenumber" required type="text" value="{{dispatchers.dispatcher_platenumber}}" >
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label for="dispatcher_lg">Local Government of Residence</label>
+             <select name="dispatcher_lg" id="lg" class="form-control border-info noround">
+                <option value="">Select</option>
+                {% for local in localgovernment %}
+                <option value="{{local.lg_id}}">{{local.lg_name}}</option>                   
+                {% endfor %}
+           </select>
+        </div>
+  
+
+       <div class="col-md-6 mb-3">
+        <label for="dispatcher_state">State of Residence</label>
+           <select name="dispatcher_state" id="state" class="form-control border-info noround">
+              <option value="">Select</option>
+              {% for state in state %}
+                <option value="{{state.state_id}}">{{state.state_name}}</option>                  
+              {% endfor %}
+         </select>
+      </div>
+
+       <div class="mb-3"> <button class="btn btn-info  noround" id="btnsubmit" name="btnsubmit" type="submit" value="Update Profile!"> Update Profile </button></div>
+
+   </div>
+  </form>
+  </div>
+  </div>
+  
+         <!-- <div class="mb-3"> 
+          <a class="btn btn-info" type="" href="/dispatcherprofilepage/"> Back to Dashboard </a>
+        </div> -->
+
+        
+  {% include "user/footer.html" %}
+      
+   
+ </div>
+
+  
+ 
+
+ 
+
+
+    
+             
+                
+     
+
+
+
+<script src="/static/jquery.js"></script>
+
+<script>
+
+
+</script>
+</body>
+</html>
+
+
+
+

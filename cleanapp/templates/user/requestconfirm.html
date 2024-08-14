@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <link href="/static/animate.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/fontawesome/css/all.css">
+    <link rel="stylesheet" href="/static/https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Request confirmation </title>
+    <style type="/static/text/css"> </style>
+</head>
+
+<body>
+ 
+  <div class="content">
+  <h3>Request Confirmation</h3>
+  <p class="alert alert-info "> You have choosen to make a request as follows: <br> Please click on the Confirm Request button when you are done.
+</p>
+
+
+ <form method="post" action="/clientrequest/">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token ()}}">
+    <div class="mb-3">
+     
+        <strong>Pickup Date:</strong> {{requests }}<br>
+         </div>
+
+    <button class="btn btn-warning noround" type="button" onclick="document.location.href='/clientrequest/'"> Cancel Request </button>
+    <button class="btn btn-info" type="submit"> Confirm Request </button>
+
+  </form>
+
+ </div>
+
+
+
+ <script>
+
+ </script>
+ 
+ 
+ </body>
+ </html>

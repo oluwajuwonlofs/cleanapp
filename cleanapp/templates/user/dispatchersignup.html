@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/fontawesome/css/all.css">
+    <title>Cleanapp Dispatcher Sign up Form</title>
+    <style type="text/css">
+    
+     body {font-family: "Raleway", sans-serif;font-variant: small-caps;padding: 0;background: whitesmoke; margin: 0;}
+     i {color: #03a9f4;}
+    .terms-container { display: none; border: 1px solid #ccc; padding: 10px; margin-top: 10px; overflow: hidden;transition: max-height 0.5s ease-out;max-height: 0;}
+    .slide-up {max-height: 0;}
+     .slide-down {max-height: 1000px;}
+     .footer {background-color: #03a9f4;color: white; padding: 10px 0;text-align: center;position: relative;bottom: 0;width: 100%;}
+     .footer a {color: white;text-decoration: none;margin: 0 10px; }
+    </style>
+</head>
+<body style=" height: 100%; width: 100%; box-sizing: border-box; margin: 0; padding: 0;">
+
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="col">
+        <h3 class="h3 mb-3 text-center"><img src="/static/logoicon.png" onclick="location.href='/'"></h3>
+        <h3 class="h3 mb-3 text-center"><em style="color: #03a9f4;">Cleanapp</em></h3>
+        <h3 class="h3 mb-3 text-center">Dispatcher Account </h3>
+        <a href="#" id="showTerms">Read Terms and Conditions</a>
+        <div class="terms-container" id="termsContainer">
+        <h3><em style="color: #03a9f4;">Terms</em> and <em style="color: green;">Conditions</em></h3>
+       <span> Welcome to <em style="color: #03a9f4;">cleanapp</em>! We're delighted to have you join our team as a dispatcher. Before you proceed, please carefully review the following terms and conditions that govern your role and responsibilities as a dispatcher on our platform:</span> <br>
+        
+       <span> 1. <em style="color: #03a9f4;">Dispatcher</em> <em style="color: green;">Role</em>: As a dispatcher on <em style="color: #03a9f4;">cleanapp</em>, you will be responsible for coordinating and managing the logistics of order deliveries and pickups between customers and dry cleaning facilities.</span> <br>
+        
+      <span>  2. <em style="color: #03a9f4;">Account</em> <em style="color: green;">Registration</em>: By signing up as a dispatcher, you agree to provide accurate and complete information during the registration process. You must maintain the confidentiality of your account credentials and are responsible for all activities that occur under your account.</span><br>
+        
+       <span> 3. <em style="color: #03a9f4;">Compliance</em> with <em style="color: green;">Policies</em>: You agree to comply with all applicable laws, regulations, and policies of <em style="color: #03a9f4;">cleanapp</em>. This includes but is not limited to our privacy policy, code of conduct, and any specific guidelines provided for dispatchers. </span><br>
+        
+       <span> 4. <em style="color: #03a9f4;">Customer</em> <em style="color: green;">Interaction</em>: When interacting with customers, you agree to maintain a professional and courteous demeanor at all times. You must accurately represent <em style="color: #03a9f4;">cleanapp</em> and provide assistance within the scope of your responsibilities. </span><br>
+        
+       <span> 5. <em style="color: #03a9f4;">Order</em> <em style="color: green;">Management</em>: You are responsible for accurately managing and updating the status of orders assigned to you. Timeliness and efficiency in delivery and pickup schedules are crucial for ensuring customer satisfaction.</span><br>
+        
+       <span> 6. <em style="color: #03a9f4;">Use</em> of <em style="color: green;">Technology</em>: You will leverage <em style="color: #03a9f4;">cleanapp's</em> technology tools and applications provided for dispatch purposes. These tools are to be used solely for conducting business related to <em style="color: #03a9f4;">cleanapp</em>.</span><br>
+        
+       <span> 7. <em style="color: #03a9f4;">Confi</em><em style="color: green;">dentiality</em>: You agree to maintain the confidentiality of all proprietary information, customer data, and any other confidential information related to <em style="color: #03a9f4;">cleanapp</em>. This information should not be disclosed to any third party without explicit authorization.</span><br>
+        
+       <span> 8. <em style="color: #03a9f4;">Term</em><em style="color: green;">ination</em>: <em style="color: #03a9f4;">cleanapp</em> reserves the right to terminate your dispatcher account at any time, with or without cause. You may also choose to terminate your account at any time by notifying us in writing.</span><br>
+        
+       <span> 9. <em style="color: #03a9f4;">Modification</em> of <em style="color: green;">Terms</em>: <em style="color: #03a9f4;">cleanapp</em> reserves the right to modify these terms and conditions at any time. Any changes will be communicated to you via email or through our platform. Your continued use of our services after such modifications will constitute your acceptance of the revised terms.</span><br>
+        
+       <span> 10.<em style="color: #03a9f4;">Governing</em> <em style="color: green;">Law</em>: These terms and conditions shall be governed by and construed in accordance with the laws of Nigeria, without regard to its conflict of law principles.</span><br>
+        
+       <span> 11. By signing up as a dispatcher on <em style="color: #03a9f4;">cleanapp</em>, you acknowledge that you have read, understood, and agree to abide by these terms and conditions. If you have any questions or concerns regarding these terms, please contact us at <em style="color: #03a9f4;">cleanapp.com</em>.</span><br>
+        
+        <p>Thank you for wanting to be a part of our team!</p>
+       <input type="checkbox" id="termsAgree"> I have read and agree to the terms above<br>
+</div>
+        <p> Already have a Dispatcher account? <a href="{{ url_for('dispatcher_login')}}">Login</a> </p>
+      </div>
+      </div>
+            
+          <form method="post" enctype="multipart/form-data">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token ()}}">
+    
+          <div class="form-group row mb-3">
+
+                 
+            <div class="col-md-6">
+              <div class="form-floating">
+                 <input type="text" name="dispatcher_businessname" class="form-control" id="floatingfname" placeholder="Busines Name">
+                 <label for="dispatcher_businessname">Dispatching Business Name</label>
+              </div>
+             </div>
+
+             <div class="col-md-6">
+              <div class="form-floating">
+                 <input type="text" name="dispatcher_email" class="form-control" id="email" placeholder="Email">
+                 <label for="dispatcher_email">Email</label>
+                 <p id="feedback"></p>
+              </div>
+             </div>
+                 
+             <div class="col-md-6">
+              <div class="form-floating">
+                 <input type="text" name="dispatcher_username" class="form-control" id="username" placeholder="Username">
+                 <label for="dispatcher_username">Username</label>
+              </div>
+             </div>
+                 
+             <div class="col-md-6">
+              <div class="form-floating">
+                 <input type="text" name="dispatcher_password" class="form-control" id="floatingfname" placeholder="Password">
+                 <label for="dispatcher_password">Password</label>
+              </div>
+             </div>
+                 
+              <div class="col-md-6">
+               <div class="form-floating">
+                    <input type="text" name="dispatcher_officeaddress" class="form-control" id="floatinglname" placeholder="Office address" required>
+                    <label for="dispatcher_officeaddress">Dispatch Office Address</label>
+                  </div>
+                 </div>
+
+                 <div class="col-md-6">
+                 <div class="form-floating">
+                   <input type="file" name="dispatcher_pix" class="form-control" id="dispatcher_pix">
+                   <label for="dispatcher_pix">Upload Profile Pic:If individual</label>
+                 </div>
+                </div>
+
+                 <div class="col-md-6">
+                  <div class="form-floating">
+                      <input type="date" name="dispatcher_businessregdate" class="form-control" id="businessreg" placeholder="Date of Business Registration" required>
+                      <label for="dispatcher_businessregdate">Date of Business Registration</label>
+                  </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="form-floating">
+                  <input type="file" name="dispatcher_certofreg" class="form-control" id="dispatcher_certofreg">
+                  <label for="dispatcher_certofreg">Upload Certificate of Registration </label>
+                </div>
+               </div>
+
+               <div class="col-md-6">
+                <div class="form-floating">
+                  <input type="file" name="dispatcher_idcard" class="form-control" id="dispatcher_idcard">
+                  <label for="dispatcher_idcard">Upload Id card if registering as individual </label>
+                </div>
+               </div>
+
+               <div class="col-md-6">
+                <div class="form-floating">
+                   <input type="text" name="dispatcher_bankname" class="form-control" id="floatingfname" placeholder="Bank Name">
+                   <label for="dispatcher_bankname">Bank Name</label>
+                </div>
+               </div>
+
+<br>
+               <div class="col-md-6">
+                <div class="form-floating">
+                   <input type="number" name="dispatcher_accountno" class="form-control" id="" placeholder="Bank Account No">
+                   <label for="dispatcher_accountno">Bank Account Number</label>
+                </div>
+               </div>
+
+               <div class="col-md-6">
+                <div class="form-floating">
+                   <input type="number" name="dispatcher_phone" class="form-control" id="" placeholder="Phone">
+                   <label for="dispatcher_phone">Phone Number</label>
+                </div>
+               </div>
+
+
+               <div class="col-md-6">
+                <div class="form-floating">
+                   <input type="text" name="dispatcher_platenumber" class="form-control" id="floatingfname" placeholder="Plate Number">
+                   <label for="dispatcher_platenumber">Plate Number if Individual</label>
+                </div>
+               </div>
+               
+
+               <div class="col-md-6">
+                <label for="dispatcher_lg">Local government</label><br>
+                <select name="dispatcher_lg" class="form-control" id="dispatcher_lg" placeholder="Localgovernment" required>
+                  <option value="">Select</option>
+                  {% for local in localgovernment %}
+                    <option value="{{local.lg_id}}">{{local.lg_name}}</option>                  
+                  {% endfor %}
+              </select>
+              </div>
+
+              <div class="col-md-6">
+                <div class="">
+                <label for="dispatcher_state">State</label><br>
+                <select name="dispatcher_state" class="form-control" id="dispatcher_state" placeholder="State" required>
+                  <option value="">Select</option>
+                    {% for state in state %}
+                      <option value="{{state.state_id}}">{{state.state_name}}</option>                  
+                    {% endfor %}
+                </select>
+            </div>
+            </div>
+            <br><br><br>
+
+            <div class="" style="display:flex; justify-content: center; align-items: center;">
+              <button class=" btn btn-lg btn-info noround" type="submit">Create a Dispatcher Account</button>
+          </div>
+      </div>
+    
+  </form>
+         
+      
+
+
+        <div class="row">
+          <div class="">
+            <footer class="py-4 bg-info mt-auto">
+                  <div class="d-flex align-items-center justify-content-between">
+                      <div class="">Copyright &copy; Cleanapp 2024</div>
+                      <div>
+                          <a href="#">Privacy Policy</a>
+                          &middot;
+                          <a href="#">Terms &amp; Conditions</a>
+
+                          <a id=""><a href="/userstory/"> User Story</a>
+                      </div>
+          </footer>
+        </div>
+      </div>
+
+      </div>
+   
+
+<script src="/static/jquery.js"></script>
+ 
+
+<script>
+
+$(document).ready(function(){
+    $("#email").change(function(){
+      var email=$("#email").val();
+      var data2send= "username="+email;
+      alert(data2send)
+      $("#feedback").load("/check/username/", data2send);
+
+
+
+    })
+  
+  })
+
+
+
+  document.getElementById('showTerms').addEventListener('click', function(event) {
+    event.preventDefault();
+    document.getElementById('termsContainer').style.display = 'block';
+  });
+
+  document.getElementById('termsAgree').addEventListener('change', function() {
+    if (this.checked) {
+      alert('Thank you for agreeing to the terms!');
+      // Here I'm enabling a submit button or just performing any other action
+    }
+  });
+
+
+  document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('showTerms').addEventListener('click', function(event) {
+            event.preventDefault();
+            document.getElementById('termsContainer').classList.add('slide-down');
+        });
+
+        document.getElementById('termsAgree').addEventListener('change', function() {
+            var termsContainer = document.getElementById('termsContainer');
+            if (this.checked) {
+                // Checkbox checked, hides the terms container
+                termsContainer.classList.remove('slide-down');
+                termsContainer.classList.add('slide-up');
+            } else {
+                // Checkbox unchecked, shows the terms container
+                termsContainer.classList.remove('slide-up');
+                termsContainer.classList.add('slide-down');
+            }
+        });
+    });
+
+
+
+
+  
+</script>
+</body>
+</html>

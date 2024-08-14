@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+  <link href="/static/animate.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/static/fontawesome/css/all.css">
+  <title>Cleanapp Send Message Page</title>
+  <style type="text/css">
+       *{background-color:white; padding-right:0px; margin:0px; padding-top:0px; text-justify: auto; }
+       body {font-family: "Raleway", sans-serif;font-variant: small-caps; padding: 0; height: 100vh;background:whitesmoke}
+      .navbar{position:absolute; top:0; width: 100%; overflow: hidden; }
+       i{color:#03a9f4;}
+       li{ position: relative;margin: auto;display: block;}
+       footer{background-color: #03a9f4;}
+
+       @media (max-width: 600px) {.footer{width: 100%;margin-bottom: 20px;}}
+
+
+    </style>
+</head>
+<body style="height: 100%; width: 100%; box-sizing: border-box; margin: 0; padding:0;">
+<div class="container-fluid">
+   {% include "user/nav.html" %}
+
+  
+    <div class="container" style="background-color: white; padding-top: 150px;" >
+        <div class="content">
+
+            <div class="row">
+                <div class="col-md-8 mx-auto">
+                    <h3 class="pb-4 mb-4 fst-italic border-bottom">
+                        <em style="color:green">Send</em> <em style="color: rgb(0, 153, 255);">Messages</em>
+                    </h3>
+
+                    <article>
+                        <div class="feedback"></div>
+                        <form action="/sendmail/" method="post" id="myform">
+                            <input type="hidden" name="csrf_token" value="{{csrf_token ()}}">
+
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="text" name="user_email" class="form-control border-info noround" value="{{users.user_email}}">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="content" class="form-label">Content</label>
+                                <textarea name="content" class="form-control border-info noround"></textarea>
+                            </div>
+
+                            <div class="mb-3">
+                                <button class="btn btn-info noround btn-lg" id="btn">Send Message</button>
+                            </div>
+                            <a href="/profilepage/">Back to Dashboard</a>
+                        </form>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+<br><br><br>
+    
+        {% include "user/footer.html" %}
+  
+</div>
+
+<script src="/static/jquery.js"></script>
+<script>
+    $(document).ready(function(){
+    $("#myform").submit(function(event){
+      event.preventDefault()
+      var data2send = $(this).serialize()
+      //make ajax call so that we can submit to the route send ail
+      $.ajax({
+        url:"/sendmail/",
+        data:data2send,
+        type:"post",
+        beforeSend:function(){
+          $("#btn").html("Please wait...")
+        },
+        error:function(errmsg){console.log(data2send)},
+        success:function(rsp){
+          $(".feedback").html(rsp)
+          $(".feedback").addClass("alert alert-info") },
+        complete:function(){}
+      })
+      
+    })
+  })
+</script>
+</body>
+</html>

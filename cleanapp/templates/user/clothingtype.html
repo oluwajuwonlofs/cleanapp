@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/fontawesome/css/all.css">
+    <title>Cleanapp clothing type </title>
+    <style type="/text/css">
+      
+    </style>
+</head>
+<body>
+    
+        <div class="row">
+          <div class="col">
+            <ul class="navbar" id="navbar" style="list-style:none;">
+             <li><img src="/static/logoicon.png/" alt="logo image" onclick="location.href='/cleanappitempage/'" id="navelement" value=""></li>
+             <li> <h1 id="navelement"><em style="color:green; margin-right: 5px;"><em style="color:#2196F3;">CLOTHING</em> TYPES</em></h5></li>
+                    </div>
+           </div>
+      
+        <hr style="color:#2196F3; font-weight: 100%; width: max-width;">
+
+
+<div>
+    <div class="container">
+        <div class="container">
+        <div class="text-center" id="menclothingtype1" name="item_clothingtype"><b>Mens Section</b></div>
+        <div class="row gradient py-2 row-cols-md-4 row-cols-lg-4 mb-1">
+           {% for item in items %}
+           {% if item.item_clothingtype==1 %}
+
+    <div class="col-md-3 col-10 justify-content-between px-1 mt-2">
+        <div class="card" style="width:17rem;">
+
+        <img src="/static/item_images/{{item.item_image}}/" class="card-img-top" alt="...">
+        <div class="card-body">
+        <h5 class="card-title"> {{item.item_name}}   </h5>
+        <p class="card-text text-secondary fw-30"><sup>₦</sup> {{item.item_price}} </p>
+      </div>
+
+      <form action="{{url_for('addwain')}}" method="post">
+        <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+        <input type="hidden" name="item_id" value="{{item.item_id}}">
+
+      <div class="card-footer d-flex justify-content-between">
+        <p><a href="{{url_for('description',id=item.item_id)}}" class="float-left btn btn-sm btn-light me-1">Description</a></p>
+        <p><button type="submit" class="float-right btn btn-sm btn-primary me-5"><i class="fa fa-shopping-cart" aria-hidden="true" id="addwain"></i></button></p>
+        <label for="">Qty:&nbsp;</label>
+        <input type="number" name="quantity" value="1" min="1" max="item.items" class="form-control w-100">
+        
+      </div>
+      </form>
+      </div>
+    </div>
+    {% endif %}
+        {% endfor %}
+    </div>
+        <hr style="color:#2196F3; font-weight: 100%; width: max-width;">
+
+
+
+     <div>
+        <div class="container">
+            <div class="container">
+            <div class="text-center" id="womenclothingtype2" name="item_clothingtype"><b>Women Section</b></div>
+            <div class="row gradient py-2 row-cols-md-4 row-cols-lg-4 mb-1">
+               {% for item in items %}
+               {% if item.item_clothingtype==2 %}
+    
+        <div class="col-md-3 col-10 justify-content-between px-1 mt-2">
+            <div class="card" style="width:17rem;">
+    
+            <img src="/static/item_images/{{item.item_image}}/" class="card-img-top" alt="...">
+            <div class="card-body">
+            <h5 class="card-title"> {{item.item_name}}   </h5>
+            <p class="card-text text-secondary fw-30"><sup>₦</sup> {{item.item_price}} </p>
+          </div>
+    
+          <form action="{{url_for('addwain')}}" method="post">
+            <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+            <input type="hidden" name="item_id" value="{{item.item_id}}">
+    
+          <div class="card-footer d-flex justify-content-between">
+            <p><a href="{{url_for('description',id=item.item_id)}}" class="float-left btn btn-sm btn-light me-1">Description</a></p>
+            <p><button type="submit" class="float-right btn btn-sm btn-primary me-5"><i class="fa fa-shopping-cart" aria-hidden="true" id="addwain"></i></button></p>
+            <label for="">Qty:&nbsp;</label>
+            <input type="number" name="quantity" value="1" min="1" max="item.items" class="form-control w-100">
+            
+          </div>
+          </form>
+          </div>
+        </div>
+        {% endif %}
+            {% endfor %}
+        </div>
+
+            <hr style="color:#2196F3; font-weight: 100%; width: max-width;">
+            
+
+    
+<div>
+    <div class="container">
+        <div class="container">
+        <div class="text-center" id="kidsclothingtype3" name="item_clothingtype"><b>Kids Section</b></div>
+        <div class="row gradient py-2 row-cols-md-4 row-cols-lg-4 mb-1">
+           {% for item in items %}
+           {% if item.item_clothingtype==3 %}
+
+    <div class="col-md-3 col-10 justify-content-between px-1 mt-2">
+        <div class="card" style="width:17rem;">
+
+        <img src="/static/item_images/{{item.item_image}}/" class="card-img-top" alt="...">
+        <div class="card-body">
+        <h5 class="card-title"> {{item.item_name}}   </h5>
+        <p class="card-text text-secondary fw-30"><sup>₦</sup> {{item.item_price}} </p>
+      </div>
+
+      <form action="{{url_for('addwain')}}" method="post">
+        <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+        <input type="hidden" name="item_id" value="{{item.item_id}}">
+
+      <div class="card-footer d-flex justify-content-between">
+        <p><a href="{{url_for('description',id=item.item_id)}}" class="float-left btn btn-sm btn-light me-1">Description</a></p>
+        <p><button type="submit" class="float-right btn btn-sm btn-primary me-5"><i class="fa fa-shopping-cart" aria-hidden="true" id="addwain"></i></button></p>
+        <label for="">Qty:&nbsp;</label>
+        <input type="number" name="quantity" value="1" min="1" max="item.items" class="form-control w-100">
+        
+      </div>
+      </form>
+      </div>
+    </div>
+    {% endif %}
+        {% endfor %}
+    </div>
+
+        <hr style="color:#2196F3; font-weight: 100%; width: max-width;">
+
+        
+<div>
+    <div class="container">
+        <div class="container">
+        <div class="text-center" id="householdclothingtype4" name="item_clothingtype"><b>Household Section</b></div>
+        <div class="row gradient py-2 row-cols-md-4 row-cols-lg-4 mb-1">
+           {% for item in items %}
+           {% if item.item_clothingtype==4 %}
+
+    <div class="col-md-3 col-10 justify-content-between px-1 mt-2">
+        <div class="card" style="width:17rem;">
+
+        <img src="/static/item_images/{{item.item_image}}/" class="card-img-top" alt="...">
+        <div class="card-body">
+        <h5 class="card-title"> {{item.item_name}}  </h5>
+        <p class="card-text text-secondary fw-30"><sup>₦</sup> {{item.item_price}} </p>
+      </div>
+
+      <form action="{{url_for('addwain')}}" method="post">
+        <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+        <input type="hidden" name="item_id" value="{{item.item_id}}">
+
+      <div class="card-footer d-flex justify-content-between">
+        <p><a href="{{url_for('description',id=item.item_id)}}" class="float-left btn btn-sm btn-light me-1">Description</a></p>
+        <p><button type="submit" class="float-right btn btn-sm btn-primary me-5" ><i class="fa fa-shopping-cart"  id="addwain"></i></button></p>
+        <label for="">Qty:&nbsp;</label>
+        <input type="number" name="quantity" value="1" min="1" max="item.items" class="form-control w-100">
+        
+      </div>
+      </form>
+      </div>
+    </div>
+    {% endif %}
+        {% endfor %}
+    </div>
+
+        
+ 
+</body>
+</html>

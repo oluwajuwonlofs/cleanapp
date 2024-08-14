@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='fontawesome/css/all.css') }}">
+    <title>CleanApp Drycleaner Profile Page/Dasboard</title>
+    <style>
+          *{background-color:white; padding-right:0px; margin:0px; padding-top:0px; text-justify: auto; }
+       body {font-family: "Raleway", sans-serif;font-variant: small-caps; padding: 0; height: 100vh;background:whitesmoke}
+      .navbar{position:absolute; top:0; width: 100%; overflow: hidden; }
+       i{color:#03a9f4;}
+       li{ position: relative;margin: auto;display: block;}
+       footer{background-color: #03a9f4;}
+       
+       img {max-width: 100%;}
+
+
+       #dropbtn {border: none; cursor: pointer;}
+       .dropbtn:hover, .dropbtn:focus {color: #03a9f4;}
+       .dropdown {position: relative;display: inline-block;}
+       .dropdown-content {display: none; position: absolute;background-color:whitesmoke;min-width: 160px;overflow: auto;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);z-index: 1;}
+       .dropdown-content a {color:#03a9f4;padding: 12px 16px;text-decoration: none;display: block;}
+       .dropdown a:hover {background-color:white;}
+       .show {display: block;}
+    </style>
+</head>
+<body  style="background-color: white; height: 100%; width: 100%; box-sizing: border-box; margin: 0; padding: 0;">
+<div class="container-fluid">
+    {% include "user/nav.html" %}
+
+    <div class="row" style="padding-top: 150px;">
+        <div class="col" style="float:left;">
+            <h3> Welcome {{ drycleaners.drycleaner_businessname }}! </h3>
+            <p><em style="color:rgb(0, 153, 255);"> Drycleaner Account</em></p><br>
+            <img src="/static/drycleaner_uploads/{{ drycleaners.drycleaner_pix}}" alt="" width="25%" height="" style="border-radius:20px;">
+            <br>
+            <a href="/changedpdrycleaner/"> Change dp</a>
+            <br><br><br>
+     
+            <button class="btn btn-outline-info" onclick="location.href='/drycleaner/assigned/history/'">Washes </button> 
+             <button class="btn btn-outline-info" onclick="location.href=''">Send message</button>
+             <button class="btn btn-outline-info" onclick="location.href=''">Report</button> 
+          
+             
+        </div>
+        <div class="col" style="float:right">
+            <a href="/drycleanerprofile/" style="float: left;"> Update Profile</a>
+            <button class="btn btn-danger" onclick="location.href='/drycleanerlogout/'" style="float: right;"> Logout</button>
+            <hr style="color: #03a9f4;">
+            <span><h3 style="text-align: start;">Profile Information</h3> </span> 
+
+            <p>Business name: <em style="color:rgb(0, 153, 255); justify-content: right;">{{drycleaners.drycleaner_businessname}}</em></p>
+            <p>Phone: <em style="color:rgb(0, 153, 255)">{{drycleaners.drycleaner_phone}}</em></p>
+            <p>Address: <em style="color:rgb(0, 153, 255)"> {{drycleaners.drycleaner_officeaddress}}</em></p>
+            <p>Email: <em style="color:rgb(0, 153, 255)">{{drycleaners.drycleaner_email}}</em></p>
+            <p>Local goverment of Business:<em style="color: rgb(0, 153, 255);">{{drycleaners.localgovernment.lg_name}} </em></p>
+            <p>State of Business:<em style="color: rgb(0, 153, 255);">{{drycleaners.state.state_name}} </em></p>
+            <hr>
+
+
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- <div class="col" style="float:left;">
+            <h3>Complaints?</h3>
+            <textarea class="col-md-9"></textarea>
+        </div> -->
+        <div class="col" style="float:right;">
+           
+            </ul>
+        </div>
+    </div>
+
+    <br><br><br><br><br><br><br><br>
+    {% include "user/footer.html" %}
+
+
+  </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='jquery.js') }}"></script>
+<script>
+
+</script>
+
+</body>
+</html>

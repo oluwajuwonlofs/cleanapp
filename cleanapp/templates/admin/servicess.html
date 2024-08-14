@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <link href="/static/animate.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/fontawesome/css/all.css">
+
+    <title>Cleanapp Index Page</title>
+
+    <style type="text/css">
+       /* *{background-color:white; padding-right:20px; margin:0px; padding-top: 1px; text-justify: auto; border: 1px solid red;} */
+       /* .navbar{position:fixed; top:0; width: 100%; overflow: hidden; }
+       #navbar a{float:left; text-align:center; text-decoration:none;} */
+       i{color: #70BFFF;}
+       
+       .b1, .b2, .b3, .b4, .b5, .b6, .b7{display:inline-block; position: relative; margin: 5px; width:25%; height:100px;}
+    </style>
+</head>
+<body>
+<div class="container-fluid" style=" height: 100%; width: 100%; box-sizing: border-box; margin: 0; padding: 0;">
+  <div class="row">
+    <div class="col">
+      <ul class="navbar" id="navbar" style="list-style:none;">
+        <img src="/static/logoicon.png/" alt="logo image" onclick="location.href='/'" id="navelement" value="home">
+        <h1 id="navelement"><em style="color:rgb(0, 153, 255); margin-right: 5px;"><em style="color: green;">OUR</em> SERVICES</em></h5>
+        <button id="content" class="btn btn-info" onclick="location.href='/addservice/'"> Add Services</button>
+        <button id="content" class="btn btn-info" onclick="location.href='/editservice/<int:id>/'"> Edit Services</button>
+        <button id="content" class="btn btn-info" onclick="location.href='/delete/<int:id>/'"> Delete a Service</button>
+        <button id="content" class="btn btn-info" onclick="location.href='/serviceupdate/'"> Update a Service</button>
+    </div>
+     </div>
+
+  <hr style="color:green; font-weight: 100%; width: max-width;">
+
+
+    <div class="row">
+        <div class="col" style="text-align: center;">
+            <div class="b1">
+                <div>
+                    <i></i>
+                    <h4 style="color: #03b6fc;">Stain Treatment</h4>
+                    <span>Get rid of all blemish on your garments and restore back to their orginal look. You should take a shot</span>
+                </div>
+            </div>
+
+           <div class="b2">
+              <div>
+                  <i></i>
+                  <h4 style="color: #03b6fc;">Dry Cleaning</h4>
+                  <span>We go all the way to endure that the best sort of products and suitable
+                     materials are used on your garment to avoid bleeching or fades </span>
+             </div>
+          </div>
+          
+          <div class="b3">
+            <div>
+                <i></i>
+                <h4 style="color: #03b6fc;" >Washing</h4>
+                <span>We leverage highly trained professionals trusted to wash and handle your garments with utmost care.</span>
+           </div>
+         </div>
+
+
+         <div class="b4">
+           <div>
+               <i></i>
+              <h4 style="color: #03b6fc;">Ironing</h4>
+              <span>Get your garments looking sharp and crisp again.</span>
+          </div>
+        </div>
+
+         <div class="b5">
+            <div>
+                <i></i>
+                <h4 style="color: #03b6fc;">Mending</h4>
+                <span>Your garments need a little mending or adjustment? no worries we can handle that for you.</span>
+            </div>
+          </div>
+
+
+        <div class="b6">
+            <div>
+                <i></i>
+               <h4 style="color: #03b6fc;">Folding and Packaging</h4>
+               <span>Neat folding and packaging for your garments.</span>
+            </div>
+        </div>
+
+
+         <div class="b7">
+            <div>
+                <i></i>
+               <h4 style="color: #03b6fc;">Delivery & Pickup</h4>
+               <p>Pickup and delivery of your garments from any location.</p>
+            </div>
+        </div>
+
+ 
+
+        </div>
+    </div>
+
+ 
+ 
+
+        
+      <div class="row">
+        <div class="col">
+           <footer>
+              <div class="col-12">
+                  <img src="logoicon.png" width="100px" alt="Cleanapp">
+              </div>
+              <div class="col-12">
+                  <div class="">
+                      <p><span>Need help?</span>CleanApp support is available 24/7</p>
+                  </div>
+                
+              
+              <div class="row">
+              <div class="col-12">
+                <span><p style="display:inline;">© 2024 CleanApp. All rights reserved</p></span>
+                <div class="col" style="display:flex;">
+                <span>
+                      <a href="" style="display:inline;">Terms</a>
+                      <a href="" style="display:inline;">Privacy</a>
+                  </span>
+              </div>
+          </div>
+          </div>
+      </footer>
+
+      </div>
+    </div>
+
+</div>
+<script src="jquery.js"></script>
+
+<script>
+
+</script>
+
+
+</body>
+</html>

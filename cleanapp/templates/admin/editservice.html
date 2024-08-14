@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/fontawesome/css/all.css">
+    <title>CleanApp Edit Item</title>
+    <style type="/static/text/css">
+
+    </style>
+</head>
+<body style=" height: 100%; width: 100%; box-sizing: border-box; margin: 0; padding: 0;">
+  
+ <div class="container-fluid">
+   
+   
+    <div class="row">
+        <div class="col">
+          <ul class="navbar" id="navbar" style="list-style:none;">
+            <li id="navelement"><img src="/static/logoicon.png" alt="logo image" onclick="location.href='/'" id="navelement"></li>
+            <li id="navelement"><h5><em style="color:#03a9f4; margin-right: 5px;">Cleanapp</em></h5></li>
+            <li id="navelement" ><a href="/cleanappitempage/"> Items</a></li>
+            <li id="navelement"><a href="/services/">Services</a></li>
+            <li id="navelement"><a href="/pricelist/">Prices</a></li> 
+         </ul>
+       </div>
+     </div>
+
+
+
+
+<div class="container px-4">
+    <h1 class="mt-4">Edit Service</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item">Dashboard</li>
+          <li class="breadcrumb-item active"><a href="{{url_for('breakout')}}">All Services</a></li>
+          <li class="breadcrumb-item active">Add Service</li>
+    </ol>
+  <div class="row">
+      <div class="col">
+        {% set messages = get_flashed_messages(with_categories=True) %}
+        {% if messages %}
+             {% for cat,msg in messages %}
+
+                   {% if cat =="error" %}
+                       <div class="alert alert-danger">{{msg}}</div>
+                   {% else %}
+                       <div class="alert alert-success">{{msg}}</div>
+                  {% endif %}
+
+            {% endfor %}
+
+        {% endif %}
+           <form method="post" action="/serviceupdate/" enctype="multipart/form-data">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token()}}">
+            <input type="hidden" name="item_id" value="{{services.serv_id}}">
+            <!-- {{ clothingtypes}} -->
+
+<div class="mb-3">
+<label for="servname" class="form-label">Service Name</label>
+<input type="text" class="form-control" id="servicename" value="{{services.serv_name}}">
+</div>
+
+
+</div>
+
+<fieldset class="mb-3">
+<legend>Status {{services.serv_status}}</legend>
+<div class="form-check">
+<input type="radio" name="serv_status" value="1" class="form-check-input" id="status1" {% if services.serv_status =="1"%} checked {%endif%}>
+<label class="form-check-label" for="status1">Publish</label>
+</div>
+
+<div class="mb-3 form-check">
+<input type="radio" name="serv_status" value="0" class="form-check-input" id="status2" {% if services.serv_status =="0"%} checked {%endif%}>
+<label class="form-check-label" for="status2">Do Not Publish</label>
+</div>
+</fieldset>
+<div class="mb-3">
+<label class="form-label" for="customFile">Upload Service Image </label>
+<input type="file" class="form-control" id="customFile" name="serv_image">
+</div>
+
+<div class="mb-3">
+<a type="submit" class="btn btn-primary" href="">Edit Service!</a>
+</div>
+
+
+
+</form>
+
+
+      </div>
+  </div>
+    
+</div>
+
+<div class="footer">
+    <div class="col-12">
+      <footer class="py-4 bg-info mt-auto">
+        <div class="container-fluid px-4">
+            <div class="d-flex align-items-center justify-content-between small">
+                <div class="text-muted">Copyright &copy; Cleanapp 2024</div>
+                <div>
+                    <a href="#">Privacy Policy</a>
+                    &middot;
+                    <a href="#">Terms &amp; Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+  </div>
+</div>
+   
+  </div>
+
+<script src="/static/jquery.js"></script>
+ 
+
+<script>
+
+
+</script>
+</body>
+</html>

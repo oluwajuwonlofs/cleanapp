@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <link href="/static/animate.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/fontawesome/css/all.css">
+
+    <title>Cleanapp Dispatcher List Page</title>
+    </head>
+    <body class="sb-nav-fixed">
+        <div class="row">
+          <div class="col">
+            <ul class="navbar" id="navbar" style="list-style:none;">
+              <img src="/static/logoicon.png" alt="logo image" onclick="location.href='cleanapphome.html'" id="content">
+              <h5 id="content"><em style="color:rgb(0, 153, 255); margin-right: 5px;">Cleanapp</em></h5>
+              <li id="content"><a>Services<select onclick="location.href='services.html'"></select></a></li>
+              <button id="content"><a href="" class="btn btn-outline-success ">Testimonials</a></button>
+              <button id="content"><a href="" class="btn btn-success">Prices</a></button>
+              <button id="content" class="btn btn-close"><a href="">Blog</a></button>
+              <button id="content" type="btn" onclick="location.href='/admin/'" class="btn btn-success">CATEGORY</button>
+              <!-- <button id="content" class="btn btn-info">Free trial</button>
+              <button id="content" type="btn" onclick="location.href='/admin/'" class="btn btn-info">SERVICES</button>
+              <button id="content" class="btn btn-info">Free trial</button> -->
+              <button id="content" type="btn" onclick="location.href='/admin/'" class="btn btn-info">Login</button>
+              <button id="content" class="btn btn-info">Free trial</button>
+            </ul>
+             </div>
+           </div>
+            <div id="layoutSidenav_content">
+                <main>
+                   
+
+  <div class="container px-4">
+                        <h1 class="mt-4">Assign Dispatcher</h1>
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item">Dashboard</li>
+                              <li class="breadcrumb-item active"><a href="/adminbreakout/">All Dispatchers</a></li>
+                              <!-- <li class="breadcrumb-item active"><a href="/adminbreakout/">Add Price</a></li> -->
+                        </ol>
+                      <div class="row">
+                          <div class="col">
+                            {% set messages= get_flashed_messages(with_categories=True)%}
+                            {% if messages %}
+                                 {% for cat,msg in messages %}
+
+                                       {% if cat =="error" %}
+                                           <div class="alert alert-danger">{{msg}}</div>
+                                        
+                                        {% else %}
+                                           <div class="alert alert-success">{{msg}}</div>
+                                  {% endif %}
+
+                               {% endfor %}
+
+                            {% endif %}
+                              
+          <form method="post" action="/assigndispatcher/" enctype="multipart/form-data">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token()}}">
+
+            <div class="mb-3">
+              <label for="dispatcher" class="form-label">Dispatchers</label>
+              <select name="dispatcher_fname" id="dispatcher" class="form-control">
+                <option value="">Select One</option>
+                {% for dispatcher in dispatchers %}
+                     {% if dispatcher.dispatcher_fname == dispatcher.dispatcher_id %}
+                     <option value="{{dispatcher.dispatcher_id}}">{{dispatcher.dispatcher_fname}}</option>
+            
+                       {% else %}
+                    <option value="{{dispatcher.dispatcher_id}}">{{dispatcher.dispatcher_fname}}</option>
+            
+            
+                    {% endif %}
+                {% endfor %}
+            </select>
+            </div>
+
+          <div class="mb-3">
+            <label for="dispatcher_lg" class="form-label">Dispacther Local Government</label>
+            <select name="dispatcher_lg" id="lg" class="form-control">
+              <option value="">Select One</option>
+              {% for local in localgovernments %}
+                   {% if dispatchers.dispatcher_lg == local.lg_id %}
+                   <option value="{{local.lg_id}}">{{local.lg_name}}</option>
+          
+                     {% else %}
+                  <option value="{{local.lg_id}}" >{{local.lg_name}}</option>
+          
+          
+                  {% endif %}
+              {% endfor %}
+          </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="dispatcher_state" class="form-label">Dispacther State</label>
+            <select name="dispatcher_state" id="lg" class="form-control">
+              <option value="">Select One</option>
+              {% for state in states %}
+                   {% if dispatchers.dispatcher_state == state.state_id %}
+                   <option value="{{state.state_id}}" >{{state.state_name}}</option>
+          
+                     {% else %}
+                  <option value="{{state.state_id}}" >{{state.state_name}}</option>
+          
+          
+                  {% endif %}
+              {% endfor %}
+          </select>
+          </div>
+
+           
+          <fieldset class="mb-3">
+            <legend>Status</legend>
+            <div class="form-check">
+              <input type="radio" name="dispatcher_status" class="form-check-input" id="exampleRadio1">
+              <label class="form-check-label" for="exampleRadio1" value="assigned">Assign</label>
+            </div>
+            <div class="mb-3 form-check">
+              <input type="radio" name="dispatcher_status" class="form-check-input" id="exampleRadio2">
+              <label class="form-check-label" for="exampleRadio2" value=" not assigned">Do Not Assign</label>
+            </div>
+          </fieldset>
+         
+          <div class="mb-3">
+            <button type="btn" class="btn btn-primary" type="submit">Assign Dispatcher!</button>
+          </div>
+         
+          
+        </form>
+
+
+                          </div>
+                      </div>
+                        
+                    </div>
+
+
+
+                    <div class="container px-4">
+                      <h1 class="mt-4">Assign Drycleaner</h1>
+                      <ol class="breadcrumb mb-4">
+                          <li class="breadcrumb-item">Dashboard</li>
+                            <li class="breadcrumb-item active"><a href="/adminbreakout/">All Dispatchers</a></li>
+                            <!-- <li class="breadcrumb-item active"><a href="/adminbreakout/">Add Price</a></li> -->
+                      </ol>
+                    <div class="row">
+                        <div class="col">
+                          {% set messages= get_flashed_messages(with_categories=True)%}
+                          {% if messages %}
+                               {% for cat,msg in messages %}
+
+                                     {% if cat =="error" %}
+                                         <div class="alert alert-danger">{{msg}}</div>
+                                      
+                                      {% else %}
+                                         <div class="alert alert-success">{{msg}}</div>
+                                {% endif %}
+
+                             {% endfor %}
+
+                          {% endif %}
+                            
+        <form method="post" action="/assigndispatcher/" enctype="multipart/form-data">
+          <input type="hidden" name="csrf_token" value="{{ csrf_token()}}">
+
+          <div class="mb-3">
+            <label for="dispatcher" class="form-label">Dispatchers</label>
+            <select name="drycleaner_businessname" id="dispatcher" class="form-control">
+              <option value="">Select One</option>
+              {% for drycleaner in drycleaner %}
+                   {% if drycleaner.drycleaner_businessname == drycleaner.drycleaner_id %}
+                   <option value="{{drycleaner.drycleaner_id}}">{{drycleaner.drycleaner_businessname}}</option>
+          
+                     {% else %}
+                  <option value="{{drycleaner.drycleaner_id}}">{{drycleaner.drycleaner_business}}</option>
+          
+          
+                  {% endif %}
+              {% endfor %}
+          </select>
+          </div>
+
+        <div class="mb-3">
+          <label for="drycleaner_lg" class="form-label">Drycleaner Local Government</label>
+          <select name="drycleaner_lg" id="lg" class="form-control">
+            <option value="">Select One</option>
+            {% for local in localgovernments %}
+                 {% if drycleaners.drycleaner_lg == local.lg_id %}
+                 <option value="{{local.lg_id}}">{{local.lg_name}}</option>
+        
+                   {% else %}
+                <option value="{{local.lg_id}}" >{{local.lg_name}}</option>
+        
+        
+                {% endif %}
+            {% endfor %}
+        </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="drycleaner_state" class="form-label">Drycleaner State</label>
+          <select name="drycleaner_state" id="lg" class="form-control">
+            <option value="">Select One</option>
+            {% for state in states %}
+                 {% if drycleaners.drycleaner_state == state.state_id %}
+                 <option value="{{state.state_id}}" >{{state.state_name}}</option>
+        
+                   {% else %}
+                <option value="{{state.state_id}}" >{{state.state_name}}</option>
+        
+        
+                {% endif %}
+            {% endfor %}
+        </select>
+        </div>
+
+         
+        <fieldset class="mb-3">
+          <legend>Status</legend>
+          <div class="form-check">
+            <input type="radio" name="dispatcher_status" class="form-check-input" id="exampleRadio1">
+            <label class="form-check-label" for="exampleRadio1" value="assigned">Assign</label>
+          </div>
+          <div class="mb-3 form-check">
+            <input type="radio" name="dispatcher_status" class="form-check-input" id="exampleRadio2">
+            <label class="form-check-label" for="exampleRadio2" value=" not assigned">Do Not Assign</label>
+          </div>
+        </fieldset>
+       
+        <div class="mb-3">
+          <button type="btn" class="btn btn-primary" type="submit">Assign Drycleaner!</button>
+        </div>
+       
+        
+      </form>
+
+
+                        </div>
+                    </div>
+                      
+                  </div>
+
+
+                </main>
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; Cleanapp 2024</div>
+                            <div>
+                                <a href="#">Privacy Policy</a>
+                                &middot;
+                                <a href="#">Terms &amp; Conditions</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <script src="/static/jquery.js"></script>
+ 
+
+<script>
+
+
+</script>
+</body>
+</html>
+
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Assign Dispatcher and Drycleaner</title>
+</head>
+<body>
+    <h2>Assign Dispatcher and Drycleaner for Client Request ID: {{ client_request.id }}</h2>
+    
+    <form method="post">
+        <label for="dispatcher_id">Select Dispatcher:</label>
+        <select id="dispatcher_id" name="dispatcher_id">
+            {% for dispatcher in dispatchers %}
+                <option value="{{ dispatcher.id }}">{{ dispatcher.name }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        
+        <label for="drycleaner_id">Select Drycleaner:</label>
+        <select id="drycleaner_id" name="drycleaner_id">
+            {% for drycleaner in drycleaners %}
+                <option value="{{ drycleaner.id }}">{{ drycleaner.name }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        
+        <input type="submit" value="Assign">
+    </form>
+</body>
+</html> -->

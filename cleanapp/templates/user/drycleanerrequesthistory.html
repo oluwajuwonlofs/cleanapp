@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+  <link href="/static/animate.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/static/fontawesome/css/all.css">
+  <title>Drycleaner-Client-Request</title>
+  <style type="text/css">
+       *{background-color:white; padding-right:0px; margin:0px; padding-top:0px; text-justify: auto; }
+       body {font-family: "Raleway", sans-serif;font-variant: small-caps; padding: 0; height: 100vh;background:whitesmoke}
+      .navbar{position:absolute; top:0; width: 100%; overflow: hidden; }
+       i{color:#03a9f4;}
+       li{ position: relative;margin: auto;display: block;}
+       footer{background-color: #03a9f4;}
+
+       @media (max-width: 600px) {.footer{width: 100%;margin-bottom: 20px;}}
+     
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .btn {
+            padding: 8px 12px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+    {% include "user/nav.html" %}
+    <div class="row" style="padding-top: 150px;">
+        <div class="col">
+
+    
+    <h1>Assigned Requests for Drycleaner: {{ drycleaner.drycleaner_businessname }}</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Request ID</th>
+                <th>Client Name</th>
+                <th>Client Phone Number</th>
+                <th>Client Address</th>
+                <th>Request Date</th>
+                <th>Pickup Status</th>
+                <th>Delivery Status</th>
+                <th>Action</th>
+                <!-- Add more columns as needed -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for request in assigned_requests %}
+            <tr>
+                <td>{{ request.request_id }}</td>
+                <td>{{ request.user.user_fname }}</td>
+                <td>{{ request.user.user_phone }}</td>
+                <td>{{ request.user.user_address }}</td>
+                <td>{{ request.request_createddate }}</td>
+                <td>{{ request.pickedup_status }}</td>
+                <td>{{ request.delivered_status }}</td>
+                <td>
+                    {% if request.pickedup_status == 'accepted' %}
+                        <a href="/drycleaner/markpickedup/{{ request.request_id }}" class="btn">Mark Picked Up</a>
+                    {% elif request.pickedup_status == 'pickedup' %}
+                        <a href="/drycleaner/markdelivered/{{ request.request_id }}" class="btn">Mark Delivered</a>
+                    {% endif %}
+                </td>
+                <!-- Add more columns as needed -->
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+
+    <a href="/drycleanerprofilepage/">Dashboard</a>
+
+</div>
+</div>
+
+    <br><br><br><br><br><br><br><br><br><br>
+
+    
+    {% include "user/footer.html" %}
+
+
+
+</div>
+
+
+<script src="/static/jquery.js"></script>
+
+<script>
+
+
+
+</script>
+</body>
+</html>

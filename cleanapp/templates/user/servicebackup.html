@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <link href="/static/animate.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/fontawesome/css/all.css">
+
+    <title>Cleanapp Services Page</title>
+
+    <style type="text/css">
+
+*{background-color:white; padding-right:20px; margin:0px; padding-top: 1px; text-justify: auto; }
+       body {font-family: "Raleway", sans-serif;font-variant: small-caps; padding: 0; height: 100vh;background:tomato}
+      .navbar{position:fixed; top:0; width: 100%; overflow: hidden; }
+       i{color:#03a9f4;}
+       li{ position: relative;margin: auto;display: block;}
+       footer{background-color: #03a9f4; width: 100%}
+
+       #container1{display: flex; justify-content: center; align-items: center; min-height: 400px; }
+       #container1 div{height: 370px; width: 335px; margin:60px; text-align: center; background:white;}
+
+       #container2{display: flex; justify-content: center; align-items: center; min-height: 400px; }
+       #container2 div{height: 370px; width: 335px; margin:60px; text-align: center; background:white;}
+      
+    </style>
+</head>
+<body style="height: 100%; width: 100%; box-sizing: border-box; margin: 0; padding:0;">
+    <div class="row">
+        <div class="col">
+          <ul class="navbar" id="navbar" style="list-style:none;">
+            <li id="navelement"><img src="/static/logoicon.png" alt="logo image" onclick="location.href='/'" id="navelement"></li>
+            <li id="navelement"><h5><em style="color:#03a9f4; margin-right: 5px;">Cleanapp</em></h5></li>
+            <li id="navelement" ><a href="/cleanappitempage/"> Items</a></li>
+            <li id="navelement"><a href="/services/">Services</a></li>
+            <li id="navelement"><a href="/pricelist/">Prices</a></li> 
+         </ul>
+       </div>
+     </div>
+     <div class="row">
+     <div id="container1" style="padding-top: 60px;">
+        <div> 
+            <h3><em style="color:green;">Stain</em><em style="color:#03a9f4;">Treatment</em></h3>
+            <span style="color: black;">Get rid of all blemish on your garments and restore back to their orginal look. You should take a shot</span>
+            <img src="/static/stain.jpg" alt="image of stain treatment" width="80%">
+            <button id="" class="btn btn-info" onclick="location.href='/createrequest/'">Request</button>
+        </div>
+
+        <div>
+            <h3><em style="color: #03a9f4;">Drycleaning</h3>
+            <span style="color: black;">The best sort of products and suitable materials are used on your garment to avoid bleeching or fades. </span>
+            <img src="/static/drycleaning.jpg" alt="image of Drying" width="80%">
+            <button id="" class="btn btn-info" onclick="location.href='/createrequest/'">Request</button>
+        </div>
+        <div>
+            <h3 style="color: #03a9f4;" >Washing</h3>
+            <span style="color: black;">We leverage highly trained professionals trusted to wash and handle your garments with utmost care.</span>
+            <img src="/static/washing.jpg" alt="image of washing" width="80%">
+            <button id="" class="btn btn-info" onclick="location.href='/createrequest/'">Request</button>
+        </div>
+    </div>
+
+    
+    <div id="container2">
+        <div> 
+            <h3 style="color: #03a9f4;">Ironing</h3>
+            <span style="color: black;">Your garments will look sharp and crisp.</span>
+            <img src="/static/iron.jpg" alt="image of iron" width="80%">
+            <button id="" class="btn btn-info" onclick="location.href='/createrequest/'">Request</button>
+        </div>
+
+        <div>
+            <h3 style="color: #03a9f4;">Mending</h3>
+            <span style="color: black;">Your garments need a little mending or adjustment? We can handle that for you.</span>
+            <img src="/static/mending.jpg" alt="image of mendin" width="80%">
+            <button id="" class="btn btn-info" onclick="location.href='/createrequest/'">Request</button>
+        </div>
+
+        <div>
+            <h3><em style="color: #03a9f4;">Delivery</em><em style="color:black">&</em><em style="color: green;">Pickup</em></h3>
+            <span style="color: black;">Pickup and delivery of your garments from any location.</span>
+            <img src="/static/pickup.jpg" alt="image of delivery and pickup" width="80%">
+            <button id="" class="btn btn-info" onclick="location.href='/createrequest/'">Request</button>
+        </div>
+    </div>
+
+
+
+
+</div>
+
+
+    <div class="row">
+        <div class="col">
+          <footer class="py-4 bg-info mt-auto">
+                <div class="d-flex align-items-center justify-content-between">
+                    <div class="">Copyright &copy; Cleanapp 2024</div>
+                    <div>
+                        <a href="#">Privacy Policy</a>
+                        &middot;
+                        <a href="#">Terms &amp; Conditions</a>
+
+                        <a id=""><a href="/userstory/"> User Story</a>
+                    </div>
+        </footer>
+      </div>
+    </div>
+       
+                  
+
+<script src="jquery.js"></script>
+
+<script>
+
+</script>
+
+
+</body>
+</html>

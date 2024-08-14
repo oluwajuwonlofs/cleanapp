@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <META HTTP-EQUIV="REFRESH" CONTENT="csrf_timeout_in_seconds">
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/fontawesome/css/all.css">
+    <title>Cleanapp Dispatcher Form</title>
+    <style type="text/css">
+
+    </style>
+</head>
+<body style=" height: 100%; width: 100%; box-sizing: border-box; margin: 0; padding: 0;">
+  
+ <div class="container-fluid">
+     <div class="row">
+         <div clsss="col">
+            <form action="{{url_for('drycleaner_login')}}" method="post" class="form-control">
+                <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+                {% set m = get_flashed_messages(with_categories=True) %}
+                {% for cat, msg in m %}
+                   {% if cat=='error' %}
+                   <div class="alert alert-danger">{{msg}}</div>
+                   {% else %}
+                   <div class="alert alert-success"> {{msg}}</div>
+                   {%endif%}
+                {% endfor %}
+                
+                <img src="/static/logoicon.png" alt="logo image" onclick="location.href='/'">
+                <h3 style="color:#70BFFF;">cleanapp</h3>
+                <p>Log in</p>
+                <p>Don't have a Drycleaner account? <em style="color:#03a9f4;"><a href="/drycleanersignup/">Sign up</a></em></p>
+                <br>
+            <div class="col-6 form-group">
+                <label>Email</label>
+                <input type="email" class="form-control" name="drycleaner_email">
+            </div>
+                <br>         
+            <div class="col-6 form-group">
+                <label>Password</label>
+                <input type="password" class="form-control" name="drycleaner_password"> 
+            </div>
+               <br>
+            <button class="col-6 btn btn-info" type="submit">Login</button>
+        </form>
+      </div>
+   </div>
+ </div>
+  
+
+
+
+<script src="/static/jquery.js"></script>
+ 
+
+<script>
+
+
+</script>
+</body>
+</html>

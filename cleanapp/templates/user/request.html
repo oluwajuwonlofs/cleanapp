@@ -1,0 +1,62 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/fontawesome/css/all.css">
+    <title>CREAT REQUESTS</title>
+    <style type="text/css">
+
+    </style>
+</head>
+<body>
+    <div class="row">
+        <div class="col">
+<form>
+    
+    <input type="address" name="client_address" class="form-control" id="floatingaddress" placeholder="Address" required>
+    <label for="floatinglg">Home Address</label>
+
+    <input type="address" name="client_address" class="form-control" id="floatingaddress" placeholder="Address" required>
+    <label for="floatinglg">Specification Address</label>
+
+
+    <div class="col-md-6">
+        <div class="form-floating">
+            <input type="date" name="client_dob" class="form-control" id="floatingdob" placeholder="Date of Birth" required>
+            <label for="floatingdate">Date of Birth</label>
+        </div>
+    </div>
+
+    
+    <div class="col-md-6">
+        <div class="">
+          <label for="floatinglg">Choose Type of Services  government</label><br>
+          <select multiple name="serv_id" class="" id="floatinglg" placeholder="Localgovernment" required>
+            {% for service in service %}
+              <option value="{{service.serv_id}}">{{service.serv_name}}</option>                  
+            {% endfor %}
+        </select>
+        </div>
+       </div>
+
+
+
+       
+
+       <button type="subbmit" class="btn btn-info"></button>
+</form>
+
+
+
+
+        <script src="/static/jquery.js"></script>
+ 
+
+        <script>
+        
+        
+        </script>
+        </body>
+        </html>

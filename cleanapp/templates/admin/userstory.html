@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+  <link href="/static/animate.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/static/fontawesome/css/all.css">
+  <title>Cleanapp User Story</title>
+  <style type="text/css">
+       *{background-color:white; padding-right:0px; margin:0px; padding-top:0px; text-justify: auto; }
+       body {font-family: "Raleway", sans-serif;font-variant: small-caps; padding: 0; height: 100vh;background:whitesmoke}
+      .navbar{position:absolute; top:0; width: 100%; overflow: hidden; }
+       i{color:#03a9f4;}
+       li{ position: relative;margin: auto;display: block;}
+       footer{background-color: #03a9f4;}
+
+       @media (max-width: 600px) {.footer{width: 100%;margin-bottom: 20px;}}
+       
+       img {max-width: 100%;}
+
+       .dropdown { position: relative;display: inline-block;}
+       .dropdown-content {display: none;position: absolute;background-color: #f9f9f9;min-width: 160px;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);z-index: 1;}
+       .dropdown-content a {color:#03a9f4;padding: 12px 16px;text-decoration: none;display: block;}
+       .dropdown-content a:hover {background-color:transparent}
+       .dropdown:hover .dropdown-content {display: block;}
+
+
+    </style>
+</head>
+<body style=" height: 100%; width: 100%; box-sizing: border-box; margin: 0; padding: 0;">
+  
+ <div class="container-fluid">
+    {% include "user/nav.html"%}
+    
+
+   <div class="row" style="display: flex; padding-top: 150px;">
+    <a href="/admin/dashboard/">Back to Dashboard</a>
+    <div class="col" style="float:left">
+      <img src="/static/userstory.jpg" alt="about Cleanapp" width="100%">
+    </div>
+    <div class="col" style="float:right">
+    <h1 class="header" style="text-align:center;">About <em style="color:rgb(0, 153, 255);">CleanApp</em></h1>
+    <p>
+      <em style="color: rgb(0, 153, 255);">CleanApp</em> is a web/mobile application that affords people with dirty laundry
+      the opportunity to have their dirty laundry picked up, cleaned and delivered 
+     crisp from the comfort of thier homes or anywhere they find themselves in the 
+     Lagos Metropolis; Delivery could take 1-5 days depending on specifications 
+     <a href="">(see terms and condition).</a>
+     The <em style="color:rgb(0, 153, 255)">CleanApp</em>
+     is not limited to serving only users who wish to 
+     <em style="color: rgb(0, 153, 255);">clean</em> 
+     dirty laundry But also serves; Dispatchers and Drycleaners.</p>
+        
+    <p>Dispatchers can therefore earn miniful pay on the <em style="color: rgb(0, 153, 255);">CleanApp</em>
+        by virtue of signing up on the CleanApp. It is important to emphasis that
+        dispatchers must take necessary integrity test in a bid to gather concrete informations
+        of the dispatchers which is solely confidential to The cleanapp  to ensure maxmum satisfaction
+        and protection of 'Users' and their high-end laundry. <em style="color: rgb(0, 153, 255);">CleanApp</em>.
+        'Dispatchers' who pass the integrity test/check would be allowed or assigned to pick up dirty laundry and deliver
+        back clean and crisp to 'Users' from the 'Drycleaners".  <a href="">(see....Select Categories)</a>
+     </p>
+        
+        <p>
+          Drycleaners i.e businesses like laundromarts and drycleaning services center(s)
+          can harness the <em style="color:rgb(0, 153, 255)">CleanApp</em> for profit 
+          and to increase sales by leveraging 'Users" of CleanApp
+          as its customers' for their laundromarts or drycleaning business. 
+          It is important to retraite clearly that Drycleaners by way of leveraging 'Users'
+          of CleanAPP do not in anyway have direct contact with the 'User' whose laundry 
+          was dispatched by the 'Dispatcher'. <a href="">( see... Select Categories)</a>
+        </p>
+            
+        <p>
+          The <em style="color:rgb(0, 153, 255);">CleanApp</em> is infused with a pay-on-request
+          payment system, such that eliminates not only situations where 'Users' don't pay for service;
+          It also helps to avert unneccesarry arguments or confrontations  between 'Dispatcher(s)' and 'User(s)' over pay. 
+          In addition, the payment system being infused in <em>CleanApp</em>, also evicts the bottleneck that Drycleaners face
+          in that they no longer have to have a stock-pile of different clothings from different customers without pay 
+          for a long period of time,
+       </p> 
+        
+    </div>
+   </div>
+
+   {% include "user/footer.html" %}
+
+         </div>
+      
+               
+                  
+       
+  
+
+
+
+<script src="jquery.js"></script>
+ 
+
+<script>
+
+
+</script>
+</body>
+</html>

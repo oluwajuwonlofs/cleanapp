@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/fontawesome/css/all.css">
+    <title>Cleanapp User/Client Sign up Form</title>
+    <style type="text/css">
+    
+       body {font-family: "Raleway", sans-serif;font-variant: small-caps; padding: 0;background:whitesmoke}
+       i{color:#03a9f4;}
+       footer{background-color: #03a9f4;}
+
+       @media (max-width: 600px) {.footer{width: 100%;margin-bottom: 20px;}}
+
+     
+    </style>
+</head>
+<body style=" height: 100%; width: 100%; box-sizing: border-box; margin: 0; padding: 0;">
+
+  <div class="container-fluid">
+
+        <div class="row">
+          <div class="col">
+            <h3 class="h3 mb-3 text-center"><img src="/static/logoicon.png" onclick="location.href='/'"></h3>
+            <h3 class="h3 mb-3 text-center"><em style="color: #03a9f4;">Cleanapp</em></h3>
+            <h3 class="h3 mb-3 text-center">Sign up</h3>
+            <p> Already have an account? <a href="{{ url_for('login')}}">Login</a> </p>
+          </div>
+          </div>
+          
+          <div class="row">
+            <div class="col">
+          <form method="post" enctype="multipart/form-data">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token ()}}"> <!--#reason why form is not submitting because of protect-->
+    
+          <div class="form-group row mb-3">
+            <div class="col-md-6">
+              <div class="form-floating">
+                 <input type="text" name="user_fname" class="form-control" id="user_fname" placeholder="Firstname">
+                 <label for="user_fname">Firstname</label>
+              </div>
+             </div>
+                 
+              <div class="col-md-6">
+               <div class="form-floating">
+                    <input type="text" name="user_lname" class="form-control" id="user_lname" placeholder="Lastname" required>
+                    <label for="user_lname">Lastname</label>
+                  </div>
+                 </div>
+<br><br><br>
+                 <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="address" name="user_address" class="form-control" id="user_address" placeholder="Address" required>
+                    <label for="user_address">Home Address</label>
+                  </div>
+                 </div>
+
+                 <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="number" name="user_phone" class="form-control" id="user_phone" placeholder="Phone Number" required>
+                    <label for="user_phone">Phone Number</label>
+                  </div>
+                 </div>
+                 <br><br><br>
+
+                 <div class="col-md-6">
+                  <div class="form-floating">
+                      <input type="date" name="user_dob" class="form-control" id="user_dob" placeholder="Date of Birth" required>
+                      <label for="user_dob">Date of Birth</label>
+                  </div>
+              </div>
+
+                 <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="file" name="user_pix" class="form-control" id="user_pix">
+                    <label for="user_pix">Upload Profile Pic</label>
+                  </div>
+                 </div>
+<br><br><br>
+              
+
+                 <div class="col-md-6">
+                    <label for="user_lg">Local government</label><br>
+                    <select name="user_lg" class="form-control" id="user_lg" placeholder="Localgovernment" required>
+                      <option value="">Select</option>
+                      {% for local in localgovernment %}
+                        <option value="{{local.lg_id}}">{{local.lg_name}}</option>                  
+                      {% endfor %}
+                  </select>
+                  </div>
+                 
+
+
+                 <div class="col-md-6">
+                  <div class="">
+                  <label for="user_state">State</label><br>
+                  <select name="user_state" class="form-control" id="user_state" placeholder="State" required>
+                    <option value="">Select</option>
+                      {% for state in state %}
+                        <option value="{{state.state_id}}">{{state.state_name}}</option>                  
+                      {% endfor %}
+                  </select>
+              </div>
+              </div>
+              <br><br><br>
+                 
+                 <div class="col-md-6">
+                  <div class="form">
+                    <label for="floatingender">Gender</label><br>
+                      <input type="radio" id="male" name="user_gender"  id="" placeholder="Male" value="Male">
+                      <label for="">Male </label>
+                      <input type="radio" id="female" name="user_gender"  id="" placeholder="Female" value="Female">
+                      
+                      <label for="">Female </label>
+                      
+              </div>
+           </div>
+
+  
+            <div class="col-md-6">
+              <div class="form-floating mb-3">
+    
+                <input type="email" class="form-control" id="email" placeholder="name@example.com" name="user_email" required>
+                <label for="user_email">Email Address</label>
+                <p id="feedback"></p>
+              </div>
+             </div>
+
+             <div class="col-md-6">
+              <div class="form-floating">
+                <input type="password" name="user_password" class="form-control" id="user_password"  required>
+                <label for="user_password"> Password</label>
+              </div>
+             </div>
+
+             <div class="col-md-6">
+              <div class="form-floating">
+              <input type="username" class="form-control" name="user_username" id="user_username" placeholder="Username" required> 
+              <label for="user_username">Username</label>
+      </div>
+    </div>
+  </div>
+
+     <div class="" style="display:flex; justify-content: center; align-items: center;">
+      <button class="w-100 btn btn-lg btn-info noround" type="submit">Create Account</button>
+  </div>
+
+  </form>
+
+  </div>
+</div>
+
+<br><br><br>
+
+         
+      
+
+
+  <div class="footer">
+    <div class="col-12">
+      <footer class="py-4 bg-info mt-auto">
+        <div class="container-fluid px-4">
+            <div class="d-flex align-items-center justify-content-between small">
+                <div class="text-muted">Copyright &copy; Cleanapp 2024</div>
+                <div>
+                    <a href="#">Privacy Policy</a>
+                    &middot;
+                    <a href="#">Terms &amp; Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+  </div>
+</div>
+
+      </div>
+   
+
+<script src="/static/jquery.js"></script>
+ 
+
+<script>
+
+$(document).ready(function(){
+    $("#email").change(function(){
+      var email=$("#email").val();
+      var data2send= "username="+email;
+      alert(data2send)
+      $("#feedback").load("/check/username/", data2send);
+
+    })
+  
+  })
+</script>
+</body>
+</html>

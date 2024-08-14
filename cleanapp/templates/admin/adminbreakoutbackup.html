@@ -1,0 +1,117 @@
+<main>
+    <div class="container-fluid px-4">
+        <h1 class="mt-4">All Break-outs</h1>
+        <ol class="breadcrumb mb-4">
+           <li class="breadcrumb-item"><a href="/admin/dashboard/">Go back- Dashboard</a></li>
+           <li class="breadcrumb-item active">Breakouts</li>
+         </ol>
+        
+         <div class="card mb-4">
+             <div class="card-body">
+               <span>Ideas, Offerings, vital to improve our services to clients who are in need of them.<span>
+                  &nbsp;&nbsp;
+                  <a href="/addservice/" class="btn btn-outline-primary">Add Service</a>
+                </div>
+          </div>
+          
+          <div class="card mb-4">
+                <div class="card-body">
+                    <span>Clothing items of whatsoever specifications not cleaned anywhere but on here on the cleanapp. </span>
+                         &nbsp;&nbsp; <a href="/additem/" class="btn btn-outline-primary">Add Item</a>
+                </div>
+          </div>
+          
+          <div class="card mb-4">
+              <div class="card-header">
+                <i class="fas fa-table me-1"></i><p>Services Created</P>
+              </div>
+                        <div class="card-body">
+                           <table class="table">
+<thead>
+<tr>
+  <!-- <th scope="col" name="admin_id">Admin</th> -->
+  <th scope="col" name="serv_cat">Category</th>
+  <th scope="col" name="serv_name">Service Name</th>
+  <th scope="col" name="serv_description">Service Description</th>
+  <th scope="col" name="serv_price">Service Price</th>
+  <th scope="col" name="serv_image">Service Image</th>
+  <th scope="col" name="serv_status">Service Status</th>
+  <th scope="col" name="serv_id">Service ID</th>
+  <th scope="col" href="">Edit Service</th>
+  
+
+</tr>
+</thead>
+<tbody>
+{% for service in services %}
+
+<tr>
+  <th scope="row">2</th>
+  <td>Washing</td>
+  <td>Dry Cleaning </td>
+  <td><img src="/static/images/{{service.serv_image}}" height="40"></td>
+
+  <td>
+    <a href=""  class="btn btn-sm btn-primary">Edit Service</a> 
+    <a href="" class="btn btn-sm btn-danger" onclick="return confirm('Do you really want to delete this service?')">Delete</a> 
+    {% if service.serv_status == "1" %}
+      <a href="" class="btn btn-sm btn-success">Active</a>
+      {% else %}
+      <a href="" class="btn btn-sm btn-secondary">Not Active</a>
+      {% endif %}
+    </td>
+  </tr>
+  {% endfor %}
+</tbody>
+</table>
+                        </div>
+                    </div>
+
+                    <div class="card mb-4">
+                      <div class="card-header">
+                          <i class="fas fa-table me-1"></i>
+                         Items Created
+                      </div>
+                      <div class="card-body">
+                         <table class="table">
+<thead>
+<tr>
+<!-- <th scope="col" name="admin_id">Admin</th> -->
+<th scope="col" name="item_clothingtype">Clothingtype</th>
+<th scope="col" name="item_name">Item Name</th>
+<th scope="col" name="item_description">Item Description</th>
+<th scope="col" name="item_price">Item Price</th>
+<th scope="col" name="item_image">Item Image</th>
+<th scope="col" name="item_status">Item Status</th>
+<th scope="col" name="item_id">Item ID</th>
+<th scope="col" href="">Edit Item</th>
+
+
+</tr>
+</thead>
+<tbody>
+{% for item in items %}
+
+<tr>
+<th scope="row">2</th>
+<td>Agbada Alone</td>
+<td>Boxers </td>
+<td><img src="/static/images/{{item.item_image}}" height="40"></td>
+
+<td>
+  <a href="/edit/{{item.item_id}}" class="btn btn-sm btn-primary">Edit Item</a> 
+  <a href="/deleteitem/" class="btn btn-sm btn-danger" onclick="return confirm('Do you really want to delete this item?')">Delete</a> 
+  {% if item.item_status == "1" %}
+    <a href="" class="btn btn-sm btn-success">Active</a>
+    {% else %}
+    <a href="" class="btn btn-sm btn-secondary">Not Active</a>
+    {% endif %}
+  </td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+                      </div>
+                  </div>
+                </div>
+            </main>

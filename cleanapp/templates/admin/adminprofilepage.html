@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='fontawesome/css/all.css') }}">
+    <title>CleanApp Administrator Profile Page/Dasboard</title>
+    <style>
+          *{background-color:white; padding-right:0px; margin:0px; padding-top:0px; text-justify: auto; }
+       body {font-family: "Raleway", sans-serif;font-variant: small-caps; padding: 0; height: 100vh;background:whitesmoke}
+      .navbar{position:absolute; top:0; width: 100%; overflow: hidden; }
+       i{color:#03a9f4;}
+       li{ position: relative;margin: auto;display: block;}
+       footer{background-color: #03a9f4;}
+       
+       img {max-width: 100%;}
+
+
+       #dropbtn {border: none; cursor: pointer;}
+       .dropbtn:hover, .dropbtn:focus {color: #03a9f4;}
+       .dropdown {position: relative;display: inline-block;}
+       .dropdown-content {display: none; position: absolute;background-color:whitesmoke;min-width: 160px;overflow: auto;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);z-index: 1;}
+       .dropdown-content a {color:#03a9f4;padding: 12px 16px;text-decoration: none;display: block;}
+       .dropdown a:hover {background-color:white;}
+       .show {display: block;}
+    </style>
+</head>
+<body  style="background-color: white; height: 100%; width: 100%; box-sizing: border-box; margin: 0; padding: 0;">
+<div class="container-fluid">
+    {% include "admin/navbar.html" %}
+
+    <div class="row" style="padding-top: 150px;">
+     <span><a href="/admin/dashboard/"> Back To Dashboard</a> </span> 
+        <div class="col" style="float:left;">
+            <h3> Welcome <em style="color: #03a9f4;">{{ admindeets.admin_username }}!</em> </h3>
+            <p><em style="color:rgb(0, 153, 255);"> Admin Account</em></p><br>
+        </div>
+        <div class="col" style="float:right">
+            <hr style="color: #03a9f4;">
+            <span><h3 style="text-align: start;">Administrator Profile Information</h3> </span> 
+
+            <li><strong>Username:</strong> <span style="padding-right:50px;"> <em style="color:#03a9f4">{{ admindeets.admin_username }} </em></span></li>
+            <li><strong>Email:</strong> <span style="padding-right:50px;"> <em style="color:#03a9f4">{{ admindeets.admin_email }} </em> </span></li>
+            <li><strong>Last Loggedin:</strong> <span style="padding-right:50px;"> <em style="color:#03a9f4"> {{ admindeets.admin_lastlogin }} </em> </span></li>
+            
+            <hr style="color:#03a9f4">
+
+
+        </div>
+    </div>
+
+   
+
+    <br><br><br><br><br><br><br><br>
+    {% include "admin/footer.html" %}
+
+
+  </div>
+
+<script src="{{ url_for('static', filename='jquery.js') }}"></script>
+<script>
+
+</script>
+
+</body>
+</html>
